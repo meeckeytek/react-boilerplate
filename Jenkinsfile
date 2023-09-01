@@ -25,7 +25,7 @@ pipeline {
                     echo 'Deploying the application to Remote server'
                     def dockerCmd = 'docker run -p 3000:3000 -d meeckey/react-app:1.0'
                sshagent(['vm-server-key']) {
-                    sh "ssh -o StrictHostKeyChecking=no <remote-server-username>@<remote-server-IP> ${dockerCmd}"
+                    sh "ssh -o StrictHostKeyChecking=no meeckey@20.13.120.61 ${dockerCmd}"
                    }
                 }
             }
